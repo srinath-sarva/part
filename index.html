@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARVA TWINS PORTAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: linear-gradient(cyan, yellow);
+        }
+
+        .fit {
+
+            margin-bottom: 12px;
+        }
+
+        #sent {
+            color: green;
+            size: 7px;
+            text-align: center;
+        }
+       
+        .done {
+            color: green;
+            size: 7px;
+            text-align: center;
+        }
+        .undone{
+            color: red;
+            size: 7px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<script>
+    var otp = Math.floor(Math.random() * 100000);
+
+    function send() {
+        var gmail = document.getElementById("gmail").value;
+
+
+
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "sarvanika.assistant@gmail.com",
+            Password: "srikanth.123",
+            To: gmail,
+            From: "sarvanika.assistant@gmail.com",
+            Subject: "OTP FOR SARVA WEB PORTAL",
+            Body: "<h1>YOUR ONE TIME PASSWORD FOR SARVA WEB PORTAL IS</h1>" + "<h1>" + otp + "</h1>"+"<br> <button style='background-color:red;color:white;'>Subscribe</button><a href ='https://youtu.be/5PUSpa0gfQ0'></a>",
+        })
+        document.getElementById("sent").innerHTML = "OTP was sent ";
+
+    }
+    function check() {
+        var rec = document.getElementById("rec").value;
+
+        if (rec == otp) {
+            document.getElementById("full").style.display = "none";
+            document.getElementById("done").innerHTML = "OTP SUCCESFULL <a href='embed.html'><br> CLICK ME FOR PDF </a>";
+            document.getElementById("pill").style.display="none";
+
+
+
+        }
+        else{
+            document.getElementById("undone").innerHTML="Wrong OTP ";
+
+        }
+
+    }
+
+</script>
+
+<body>
+    <! Navbar>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <button type="button" class="btn btn-danger" style="margin:5px">
+                SARVA TWINS PORTAL <span class="badge badge-dark">24/7</span>
+            </button>
+        
+        <img src="p1.jpg" width="100px" height="100px">
+        <img src="p2.jpg" width="100px" height="100px">
+        <i class="fa fa-whatsapp" style="font-size:20px;color:white">7993054800</i>
+        <i class="fa fa-whatsapp" style="font-size:20px;color:white">9515972413</i>
+
+        </nav>
+        <br>
+        <br>
+        <br>
+
+        <br>
+        <br>
+
+        <center>
+            <div class="container" style="margin:9px">
+                <div class="row">
+                    <div class="card col-md-12 col-12  col-sm-12  col-lg-4 fit" style="width: 20rem;">
+                        <div style="background-color: black;color:white ;margin:10px" id="full">
+                            <h2>LOGIN TO PRACTICE ADVANCED CODING</h2>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h1 id="done" class="done"></h1>
+
+                            <div id="pill">
+                                <div class=" mb-2">
+                                    <label for="staticEmail2" class="sr-only">Email</label>
+                                </div>
+                                <div class=" mx-sm-3 mb-2">
+                                    <label for="inputPassword2" class="sr-only">Gmail address</label>
+                                    <input type="text" class="form-control" id="gmail" placeholder="Your gmail"><br>
+
+                                </div>
+                                <center><button type="submit" class="btn btn-primary mb-5" onclick="send()">GET
+                                        OTP</button></center>
+                                <h2 id="sent"></h2>
+
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="inputPassword2" class="sr-only">ENTER OTP</label>
+                                    <input type="text" class="form-control" id="rec" placeholder="Enter OTP">
+                                </div>
+                                <button class="btn btn-primary mb-2" onclick="check()">Confirm OTP</button>
+                            </div>
+                        <h2 id="undone" class="undone"> </h2>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </center>
+
+
+</body>
+
+</html>
